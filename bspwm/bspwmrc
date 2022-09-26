@@ -1,0 +1,39 @@
+#! /bin/sh
+
+sxhkd &
+compton &
+
+#bspc monitor HDMI-0 -d 1 2 3 4 5 
+#bspc monitor %DP-2.8 -d 6 7 8 9 10
+
+bspc monitor %DP-2.8 -d 1 2 3 4 5 
+bspc monitor HDMI-0 -d 6 7 8 9 10
+
+bspc config border_width         2
+bspc config window_gap           6
+bspc config top_padding      36
+bspc config focused_border_color \#1E88E5
+bspc config normal_border_color \#1F1F1F
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a thunar state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+# set wallpaper
+nitrogen --set-scaled /home/diego/Pictures/Wallpapers/7097368.png &
+nitrogen --restore &
+
+xsetroot -cursor_name left_ptr
+
+# kill previously running instances of polybar
+pkill polybar
+
+# run launch.sh
+~/.config/polybar/launch.sh

@@ -1,0 +1,40 @@
+window:
+  padding:
+    x: 20
+    y: 20
+  dynamic_padding: true
+  decorations: none
+  opacity: 0.8
+
+
+env:
+  TERM: alacritty
+  LANG: en_US.UTF-8
+  LC_CTYPE: en_US.UTF-8
+font:
+  normal:
+    family: monospace
+    style: Regular
+  size: 10
+colors:
+  primary:
+    background: "#000000"
+    foreground: "#D8DEE9"
+  normal:
+    black: "#3B4252"
+    red: "#BF616A"
+    green: "#A3BE8C"
+    yellow: "#EBCB8B"
+    blue: "#81A1C1"
+    magenta: "#B48EAD"
+    cyan: "#88C0D0"
+    white: "#E5E9F0"
+  bright:
+    black: "#4C566A"
+    red: "#BF616A"
+    green: "#A3BE8C"
+    yellow: "#EBCB8B"
+    blue: "#81A1C1"
+    magenta: "#B48EAD"
+    cyan: "#8FBCBB"
+    white: "#ECEFF4"

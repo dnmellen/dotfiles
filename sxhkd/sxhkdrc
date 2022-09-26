@@ -1,0 +1,78 @@
+# To spawn the terminal
+super + Return
+  alacritty
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# for dmenu
+super + p
+   rofi -show run
+#  dmenu_run -b
+
+# brave browser
+super + b
+   brave-browser --use-gl=desktop --enable-features=VaapiVideoDecoder
+
+# quit/restart bspwm
+shift + super + {q,r}
+  bspc {quit,wm -r}
+
+# send the window to the given desktop
+super + shift + {1-9}
+  bspc node -d '^{1-9}'
+
+# close and kill
+super + {_,shift + }c
+    bspc node -{c,k}
+
+# preselect the direction
+# we will see that this means in the manual layout
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# change window states
+super + {t,shift + t,s,f}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+
+# Focus {prev,next} window
+super + {Left,Right,Up,Down}
+  bspc node -f {west,east,north,south}
+
+
+# Focus other desktop
+super + shift + Left
+    bspc desktop -f prev
+
+super + shift + Right
+    bspc desktop -f next 
+
+# Rotate parent 90 degrees
+super + alt + r
+    bspc node @parent -R 90
+
+
+# Volume Control & multimedia keys
+XF86AudioLowerVolume
+    amixer -D pulse sset Master 5%-
+XF86AudioRaiseVolume
+    amixer -D pulse sset Master 5%+
+XF86AudioMute
+    amixer -D pulse sset Master toggle
+XF86AudioPrev
+    playerctl previous
+XF86AudioNext
+    playerctl next
+XF86AudioPlay
+    playerctl play-pause
+
+# move a floating window
+super + ctrl + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+ 
+# Custom move/resize
+alt + super + {Left,Down,Up,Right}
+    /home/diego/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
